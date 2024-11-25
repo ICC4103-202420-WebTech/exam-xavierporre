@@ -1,0 +1,14 @@
+<h1>Edit Compliment</h1>
+
+<%= form_with model: @compliment, local: true do |form| %>
+  <div>
+    <%= form.label :message, "Compliment Message" %><br>
+    <%= form.text_field :message, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Compliment", class: "btn btn-success" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", root_path, class: "btn btn-secondary" %>

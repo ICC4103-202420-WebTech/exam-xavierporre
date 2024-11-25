@@ -8,6 +8,9 @@
     <p><%= @compliment.message %></p>
     <%= link_to "carga otro mensaje ", root_path, class:"btn btn-primary" %></p>
     <%= link_to "Create a New Compliment", new_compliment_path, class: "btn btn-success" %>
+    <% if user_signed_in? %>
+        <%= link_to "Edit Compliment", edit_compliment_path(@compliment), class: "btn btn-warning" %>
+    <% end %>
 
   </body>
 </html>
