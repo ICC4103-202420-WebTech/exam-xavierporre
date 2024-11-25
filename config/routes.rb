@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  root "compliments#index"
+  resources :compliments, only: [:new, :create, :index]
 end

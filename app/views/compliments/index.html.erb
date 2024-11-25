@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Random Compliment</title>
+  </head>
+  <body>
+    <h1>Your Compliment</h1>
+    <p><%= @compliment.message %></p>
+    <%= link_to "Create a New Compliment", new_compliment_path, class: "btn btn-success" %>
+
+  </body>
+</html>
