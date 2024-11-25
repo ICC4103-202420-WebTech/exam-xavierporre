@@ -1,4 +1,6 @@
 class ComplimentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
+  
   def index
     @compliment = Compliment.order("RANDOM()").first
     if @compliment.nil?
