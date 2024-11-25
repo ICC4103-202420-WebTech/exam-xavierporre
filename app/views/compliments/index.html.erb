@@ -10,11 +10,12 @@
     <!-- Botón para cargar otro mensaje -->
     <%= link_to "Cargar otro mensaje", root_path, class: "btn btn-primary" %>
     <%= link_to "Create New Compliment", new_compliment_path, class: "btn btn-success" %>
-    <h1>All Compliments</h1>
+    
 
     
 
     <% if current_user %> <!-- Verificación de si el usuario está autenticado -->
+      <h1>All Compliments</h1>
       <ul>
         <% @compliments.each do |compliment| %>
           <li>
