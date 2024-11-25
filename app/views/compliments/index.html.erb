@@ -6,11 +6,27 @@
   <body>
     <h1>Your Compliment</h1>
     <p><%= @compliment.message %></p>
-    <%= link_to "carga otro mensaje ", root_path, class:"btn btn-primary" %></p>
-    <%= link_to "Create a New Compliment", new_compliment_path, class: "btn btn-success" %>
-    <% if user_signed_in? %>
-        <%= link_to "Edit Compliment", edit_compliment_path(@compliment), class: "btn btn-warning" %>
-    <% end %>
+
+    <!-- Botón para cargar otro mensaje -->
+    <%= link_to "Cargar otro mensaje", root_path, class: "btn btn-primary" %>
+    <%= link_to "Create New Compliment", new_compliment_path, class: "btn btn-success" %>
+    <h1>All Compliments</h1>
+
+    
+
+    <% if current_user %> <!-- Verificación de si el usuario está autenticado -->
+      <ul>
+        <% @compliments.each do |compliment| %>
+          <li>
+            <strong>Message:</strong> <%= compliment.message %>
+            <%= link_to 'Edit', edit_compliment_path(compliment), class: "btn btn-primary" %>
+          </li>
+        <% end %>
+      </ul>
+      <% if @compliments.empty? %>
+        <p>No compliments available yet!</p>
+      <% end %>
+    <% end %> <!-- Fin de la verificación de usuario autenticado -->
 
   </body>
 </html>

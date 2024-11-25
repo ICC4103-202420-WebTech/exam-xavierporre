@@ -4,6 +4,7 @@ class ComplimentsController < ApplicationController
 
   def index
     @compliment = Compliment.order("RANDOM()").first
+    @compliments = Compliment.all
     if @compliment.nil?
       @compliment = Compliment.new(message: "No compliments available yet!")
     end
